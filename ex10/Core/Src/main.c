@@ -93,6 +93,31 @@ int main(void)
 	                                   GPIO_PIN_SET);
   }
 
+  void test(int num) {
+      // Turn OFF all 12 pins (set them HIGH)
+      HAL_GPIO_WritePin(GPIOA, no1_Pin | no2_Pin | no3_Pin | no4_Pin |
+                                 no5_Pin | no6_Pin | no7_Pin | no8_Pin |
+                                 no9_Pin | no10_Pin | no11_Pin | no12_Pin,
+                                 GPIO_PIN_SET);
+
+      // Turn ON only the selected pin (drive LOW)
+      switch(num) {
+          case 1: HAL_GPIO_WritePin(GPIOA, no1_Pin, GPIO_PIN_RESET); break;
+          case 2: HAL_GPIO_WritePin(GPIOA, no2_Pin, GPIO_PIN_RESET); break;
+          case 3: HAL_GPIO_WritePin(GPIOA, no3_Pin, GPIO_PIN_RESET); break;
+          case 4: HAL_GPIO_WritePin(GPIOA, no4_Pin, GPIO_PIN_RESET); break;
+          case 5: HAL_GPIO_WritePin(GPIOA, no5_Pin, GPIO_PIN_RESET); break;
+          case 6: HAL_GPIO_WritePin(GPIOA, no6_Pin, GPIO_PIN_RESET); break;
+          case 7: HAL_GPIO_WritePin(GPIOA, no7_Pin, GPIO_PIN_RESET); break;
+          case 8: HAL_GPIO_WritePin(GPIOA, no8_Pin, GPIO_PIN_RESET); break;
+          case 9: HAL_GPIO_WritePin(GPIOA, no9_Pin, GPIO_PIN_RESET); break;
+          case 10: HAL_GPIO_WritePin(GPIOA, no10_Pin, GPIO_PIN_RESET); break;
+          case 11: HAL_GPIO_WritePin(GPIOA, no11_Pin, GPIO_PIN_RESET); break;
+          case 12: HAL_GPIO_WritePin(GPIOA, no12_Pin, GPIO_PIN_RESET); break;
+          default: break; // ignore invalid values
+      }
+  }
+
   void setNumberOnClock(int num){
 
 	  //invalid
@@ -100,79 +125,80 @@ int main(void)
 	  // Select the LED based on num (0–11)
 	  switch(num)
 	  {
-		  case 0: HAL_GPIO_WritePin(GPIOA, no1_Pin, GPIO_PIN_RESET); break;
-		  case 1: HAL_GPIO_WritePin(GPIOA, no2_Pin, GPIO_PIN_RESET); break;
-		  case 2: HAL_GPIO_WritePin(GPIOA, no3_Pin, GPIO_PIN_RESET); break;
-		  case 3: HAL_GPIO_WritePin(GPIOA, no4_Pin, GPIO_PIN_RESET); break;
-		  case 4: HAL_GPIO_WritePin(GPIOA, no5_Pin, GPIO_PIN_RESET); break;
-		  case 5: HAL_GPIO_WritePin(GPIOA, no6_Pin, GPIO_PIN_RESET); break;
-		  case 6: HAL_GPIO_WritePin(GPIOA, no7_Pin, GPIO_PIN_RESET); break;
-		  case 7: HAL_GPIO_WritePin(GPIOA, no8_Pin, GPIO_PIN_RESET); break;
-		  case 8: HAL_GPIO_WritePin(GPIOA, no9_Pin, GPIO_PIN_RESET); break;
-		  case 9: HAL_GPIO_WritePin(GPIOA, no10_Pin, GPIO_PIN_RESET); break;
-		  case 10: HAL_GPIO_WritePin(GPIOA, no11_Pin, GPIO_PIN_RESET); break;
-		  case 11: HAL_GPIO_WritePin(GPIOA, no12_Pin, GPIO_PIN_RESET); break;
+		  case 0: HAL_GPIO_WritePin(GPIOA, no12_Pin, GPIO_PIN_RESET); break;
+		  case 1: HAL_GPIO_WritePin(GPIOA, no1_Pin, GPIO_PIN_RESET); break;
+		  case 2: HAL_GPIO_WritePin(GPIOA, no2_Pin, GPIO_PIN_RESET); break;
+		  case 3: HAL_GPIO_WritePin(GPIOA, no3_Pin, GPIO_PIN_RESET); break;
+		  case 4: HAL_GPIO_WritePin(GPIOA, no4_Pin, GPIO_PIN_RESET); break;
+		  case 5: HAL_GPIO_WritePin(GPIOA, no5_Pin, GPIO_PIN_RESET); break;
+		  case 6: HAL_GPIO_WritePin(GPIOA, no6_Pin, GPIO_PIN_RESET); break;
+		  case 7: HAL_GPIO_WritePin(GPIOA, no7_Pin, GPIO_PIN_RESET); break;
+		  case 8: HAL_GPIO_WritePin(GPIOA, no8_Pin, GPIO_PIN_RESET); break;
+		  case 9: HAL_GPIO_WritePin(GPIOA, no9_Pin, GPIO_PIN_RESET); break;
+		  case 10: HAL_GPIO_WritePin(GPIOA, no10_Pin, GPIO_PIN_RESET); break;
+		  case 11: HAL_GPIO_WritePin(GPIOA, no11_Pin, GPIO_PIN_RESET); break;
 		  default: break; // ignore invalid inputs
 	  }
   }
-
   void clearNumberOnClock(int num){
 	  if (num < 0 || num > 11) return;
 	  // Select the LED based on num (0–11)
 	  switch(num) {
-		  case 0:  HAL_GPIO_WritePin(GPIOA, no1_Pin,  GPIO_PIN_SET); break;
-		  case 1:  HAL_GPIO_WritePin(GPIOA, no2_Pin,  GPIO_PIN_SET); break;
-		  case 2:  HAL_GPIO_WritePin(GPIOA, no3_Pin,  GPIO_PIN_SET); break;
-		  case 3:  HAL_GPIO_WritePin(GPIOA, no4_Pin,  GPIO_PIN_SET); break;
-		  case 4:  HAL_GPIO_WritePin(GPIOA, no5_Pin,  GPIO_PIN_SET); break;
-		  case 5:  HAL_GPIO_WritePin(GPIOA, no6_Pin,  GPIO_PIN_SET); break;
-		  case 6:  HAL_GPIO_WritePin(GPIOA, no7_Pin,  GPIO_PIN_SET); break;
-		  case 7:  HAL_GPIO_WritePin(GPIOA, no8_Pin,  GPIO_PIN_SET); break;
-		  case 8:  HAL_GPIO_WritePin(GPIOA, no9_Pin,  GPIO_PIN_SET); break;
-		  case 9:  HAL_GPIO_WritePin(GPIOA, no10_Pin, GPIO_PIN_SET); break;
-		  case 10: HAL_GPIO_WritePin(GPIOA, no11_Pin, GPIO_PIN_SET); break;
-		  case 11: HAL_GPIO_WritePin(GPIOA, no12_Pin, GPIO_PIN_SET); break;
+		  case 0:  HAL_GPIO_WritePin(GPIOA, no12_Pin,  GPIO_PIN_SET); break;
+		  case 1:  HAL_GPIO_WritePin(GPIOA, no1_Pin,  GPIO_PIN_SET); break;
+		  case 2:  HAL_GPIO_WritePin(GPIOA, no2_Pin,  GPIO_PIN_SET); break;
+		  case 3:  HAL_GPIO_WritePin(GPIOA, no3_Pin,  GPIO_PIN_SET); break;
+		  case 4:  HAL_GPIO_WritePin(GPIOA, no4_Pin,  GPIO_PIN_SET); break;
+		  case 5:  HAL_GPIO_WritePin(GPIOA, no5_Pin,  GPIO_PIN_SET); break;
+		  case 6:  HAL_GPIO_WritePin(GPIOA, no6_Pin,  GPIO_PIN_SET); break;
+		  case 7:  HAL_GPIO_WritePin(GPIOA, no7_Pin,  GPIO_PIN_SET); break;
+		  case 8:  HAL_GPIO_WritePin(GPIOA, no8_Pin,  GPIO_PIN_SET); break;
+		  case 9:  HAL_GPIO_WritePin(GPIOA, no9_Pin, GPIO_PIN_SET); break;
+		  case 10: HAL_GPIO_WritePin(GPIOA, no10_Pin, GPIO_PIN_SET); break;
+		  case 11: HAL_GPIO_WritePin(GPIOA, no11_Pin, GPIO_PIN_SET); break;
 		  default: break;
 	  }
   }
 
   //vars
-  int count_sec = 0;
-  int count_min = 0;
-  int count_hour = 0;
-  /* USER CODE END 2 */
+  unsigned long sec_steps_total = 0;
+  unsigned long min_steps_total = 0;
+  int hour_pos = 0;
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Delay(1000);
-	  //clear
-	  clearAllClock();
+    HAL_Delay(1000);
+    // 1) advance seconds (a "step" = one LED move)
+    sec_steps_total++;
 
-	  int sec_led  = count_sec % 12;   // 0..11
-	  int min_led  = count_min % 12;
-	  int hour_led = count_hour % 12;
+    // 2) when seconds have completed 5 rotations (5*12 = 60 steps) -> advance minute once
+    if (sec_steps_total > 0 && sec_steps_total % (12 * 5) == 0) {
+  	  min_steps_total++;
 
-	  setNumberOnClock(hour_led);
-	  setNumberOnClock(min_led);
-	  setNumberOnClock(sec_led);
+  	  // 3) when minutes have completed 5 rotations (5*12 = 60 minute-steps) -> advance hour once
+  	  if (min_steps_total > 0 && min_steps_total % 12 == 0) {
+  		  hour_pos = (hour_pos + 1) % 12;
+  	  }
+    }
 
-	  // advance simplified counters
-	  count_sec++;
-	  if (count_sec % 12 == 0) {   // second hand completed a 12-step revolution
-		  count_min++;
-		  if (count_min % 12 == 0) { // minute hand completed a 12-step revolution
-			  count_hour = (count_hour + 1) % 12;
-		  }
-	  }
+    // 4) compute LED indices (0..11)
+    int sec_led  = sec_steps_total % 12;
+    int min_led  = (min_steps_total) % 12;
+    int hour_led = (hour_pos) % 12;
+
+    // 5) update display: clear once, then set all three hands
+    clearAllClock();
+    setNumberOnClock(hour_led);   // draw hour
+    setNumberOnClock(min_led);    // draw minute
+    setNumberOnClock(sec_led);    // draw second
+  }
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-}
+
 
 /**
   * @brief System Clock Configuration
